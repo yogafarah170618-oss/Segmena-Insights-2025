@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BRUTALISM DESIGN SYSTEM
+   Raw, bold, high-contrast with harsh borders and heavy typography.
+   All colors MUST be HSL.
+*/
+
+/* Custom border-3 utility */
+@layer utilities {
+  .border-3 {
+    border-width: 3px;
+  }
+  .border-b-3 {
+    border-bottom-width: 3px;
+  }
+  .border-t-3 {
+    border-top-width: 3px;
+  }
+  .border-l-3 {
+    border-left-width: 3px;
+  }
+  .border-r-3 {
+    border-right-width: 3px;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 60 9% 98%;
+    --foreground: 0 0% 0%;
+
+    --card: 60 9% 98%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 60 9% 98%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 60 9% 98%;
+
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 354 100% 50%;
+    --accent-foreground: 60 9% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+
+    --radius: 0px;
+
+    --brutal-shadow: 4px 4px 0px hsl(0 0% 0%);
+    --brutal-shadow-lg: 8px 8px 0px hsl(0 0% 0%);
+    --brutal-shadow-hover: 6px 6px 0px hsl(0 0% 0%);
+
+    --sidebar-background: 60 9% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 60 9% 98%;
+    --sidebar-accent: 45 93% 47%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 60 9% 98%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 60 9% 98%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 60 9% 98%;
+
+    --primary: 60 9% 98%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 354 100% 50%;
+    --accent-foreground: 60 9% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+
+    --border: 60 9% 98%;
+    --input: 60 9% 98%;
+    --ring: 60 9% 98%;
+
+    --brutal-shadow: 4px 4px 0px hsl(60 9% 98%);
+    --brutal-shadow-lg: 8px 8px 0px hsl(60 9% 98%);
+    --brutal-shadow-hover: 6px 6px 0px hsl(60 9% 98%);
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 60 9% 98%;
+    --sidebar-primary: 60 9% 98%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 45 93% 47%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 60 9% 98%;
+    --sidebar-ring: 60 9% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Mono', monospace;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .brutal-card {
+    background: hsl(var(--card));
+    border: 3px solid hsl(var(--border));
+    box-shadow: var(--brutal-shadow);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .brutal-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--brutal-shadow-hover);
+  }
+
+  .brutal-card-lg {
+    background: hsl(var(--card));
+    border: 4px solid hsl(var(--border));
+    box-shadow: var(--brutal-shadow-lg);
+  }
+
+  .brutal-button {
+    border: 3px solid hsl(var(--border));
+    box-shadow: var(--brutal-shadow);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .brutal-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--brutal-shadow-hover);
+  }
+
+  .brutal-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .brutal-input {
+    border: 3px solid hsl(var(--border));
+    background: hsl(var(--background));
+    font-family: 'Space Mono', monospace;
+  }
+
+  .brutal-input:focus {
+    outline: none;
+    box-shadow: var(--brutal-shadow);
+    transform: translate(-2px, -2px);
+  }
+
+  .brutal-text {
+    font-family: 'Archivo Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .brutal-border {
+    border: 3px solid hsl(var(--border));
+  }
+
+  .brutal-border-thick {
+    border: 5px solid hsl(var(--border));
+  }
+
+  .striped-bg {
+    background: repeating-linear-gradient(
+      -45deg,
+      hsl(var(--background)),
+      hsl(var(--background)) 10px,
+      hsl(var(--muted)) 10px,
+      hsl(var(--muted)) 20px
+    );
+  }
+
+  .dotted-bg {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .highlight-yellow {
+    background-color: hsl(var(--secondary));
+    padding: 0.1em 0.3em;
+  }
+
+  .highlight-red {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    padding: 0.1em 0.3em;
+  }
+
+  .brutal-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+  }
+
+  .shake-hover:hover {
+    animation: shake 0.3s ease-in-out;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px) rotate(-1deg); }
+    75% { transform: translateX(4px) rotate(1deg); }
+  }
+
+  .marquee {
+    animation: marquee 15s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+/* MOBILE-FIRST RESPONSIVE STYLES (360px - 430px) */
+@layer utilities {
+  /* Mobile typography scaling */
+  .mobile-title {
+    @apply text-3xl;
+  }
+  
+  .mobile-subtitle {
+    @apply text-lg;
+  }
+  
+  .mobile-text {
+    @apply text-sm;
+  }
+  
+  /* Mobile spacing */
+  .mobile-padding {
+    @apply px-4 py-4;
+  }
+  
+  .mobile-gap {
+    @apply gap-3;
+  }
+  
+  /* Mobile card adjustments */
+  .mobile-card {
+    @apply p-4;
+  }
+  
+  /* Touch-friendly sizing */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Mobile-specific media queries */
+@media (max-width: 430px) {
+  /* Root adjustments */
+  :root {
+    --brutal-shadow: 3px 3px 0px hsl(0 0% 0%);
+    --brutal-shadow-lg: 5px 5px 0px hsl(0 0% 0%);
+    --brutal-shadow-hover: 4px 4px 0px hsl(0 0% 0%);
+  }
+  
+  .dark {
+    --brutal-shadow: 3px 3px 0px hsl(60 9% 98%);
+    --brutal-shadow-lg: 5px 5px 0px hsl(60 9% 98%);
+    --brutal-shadow-hover: 4px 4px 0px hsl(60 9% 98%);
+  }
+  
+  /* Typography scaling */
+  h1 {
+    font-size: 1.875rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  /* Body text */
+  body {
+    font-size: 14px;
+  }
+  
+  /* Reduce border width on mobile */
+  .border-3 {
+    border-width: 2px;
+  }
+  
+  .border-b-3, .border-t-3, .border-l-3, .border-r-3 {
+    border-width: 2px;
+  }
+  
+  /* Smaller shadows on mobile */
+  .shadow-brutal {
+    box-shadow: 3px 3px 0px hsl(var(--border)) !important;
+  }
+  
+  .shadow-brutal-lg {
+    box-shadow: 5px 5px 0px hsl(var(--border)) !important;
+  }
+  
+  /* Mobile navigation adjustments */
+  .marquee {
+    font-size: 0.75rem;
+  }
+  
+  /* Card compact mode */
+  .brutal-card, .brutal-card-lg {
+    padding: 1rem;
+  }
+  
+  /* Mobile button sizing */
+  .brutal-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Dotted background smaller pattern */
+  .dotted-bg {
+    background-size: 15px 15px;
+  }
+  
+  /* Table responsive */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent horizontal scroll */
+  .no-scroll-x {
+    overflow-x: hidden;
+  }
+  
+  /* Stack flex items vertically */
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  /* Full width on mobile */
+  .mobile-full {
+    width: 100% !important;
+  }
+}
