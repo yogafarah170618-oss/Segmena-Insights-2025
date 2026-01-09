@@ -82,12 +82,43 @@ const Auth = () => {
     setLoading(true);
 
     try {
+      // First, check if the email exists by attempting a password reset
+      // This is a workaround since Supabase doesn't expose user existence check
+      const { data: signUpCheck } = await supabase.auth.signUp({
+        email,
+        password: 'dummy-check-password-12345',
+      });
+      
+      // If signUp returns a user with identities array empty or user already exists indication
+      // it means the email is already registered
+      const emailExists = signUpCheck?.user?.identities?.length === 0 || 
+                          signUpCheck?.user?.id !== undefined;
+      
+      // Now attempt the actual login
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (error) throw error;
+      if (error) {
+        const errorMsg = error.message?.toLowerCase() || "";
+        
+        if (errorMsg.includes("invalid login credentials") || errorMsg.includes("invalid_credentials")) {
+          // Check if email exists to differentiate between wrong password and non-existent account
+          if (!emailExists || signUpCheck?.user?.identities?.length !== 0) {
+            throw { 
+              message: "user_not_found",
+              isCustom: true 
+            };
+          } else {
+            throw { 
+              message: "wrong_password",
+              isCustom: true 
+            };
+          }
+        }
+        throw error;
+      }
 
       toast({
         title: "Berhasil login!",
@@ -95,9 +126,25 @@ const Auth = () => {
       });
       navigate("/");
     } catch (error: any) {
+      let errorTitle = "Gagal login";
+      let errorDescription = "Terjadi kesalahan saat login.";
+      
+      if (error.message === "user_not_found") {
+        errorTitle = "Akun tidak ditemukan";
+        errorDescription = "Email tidak terdaftar. Silakan daftar terlebih dahulu.";
+      } else if (error.message === "wrong_password") {
+        errorTitle = "Password salah";
+        errorDescription = "Password yang Anda masukkan tidak valid.";
+      } else if (error.message?.toLowerCase().includes("email not confirmed")) {
+        errorTitle = "Email belum diverifikasi";
+        errorDescription = "Silakan cek email Anda untuk verifikasi akun.";
+      } else if (error.message) {
+        errorDescription = error.message;
+      }
+      
       toast({
-        title: "Gagal login",
-        description: error.message,
+        title: errorTitle,
+        description: errorDescription,
         variant: "destructive",
       });
     } finally {
