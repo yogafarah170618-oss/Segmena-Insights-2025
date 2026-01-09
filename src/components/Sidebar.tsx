@@ -85,8 +85,8 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="fixed top-3 left-3 z-[60] w-10 h-10 border-2 border-border bg-card shadow-brutal flex items-center justify-center hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-hover transition-all">
-            <Menu className="w-5 h-5" />
+          <button className="fixed top-2.5 left-2 z-[60] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
+            <Menu className="w-4 h-4" />
           </button>
         </SheetTrigger>
         <SheetContent 

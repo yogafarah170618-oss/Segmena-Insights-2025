@@ -16,9 +16,9 @@ export function DarkModeToggle() {
       <Button
         variant="ghost"
         size="icon"
-        className="w-10 h-10 rounded-none border-2 border-border bg-background hover:bg-accent"
+        className="w-8 h-8 sm:w-10 sm:h-10 rounded-none border border-border sm:border-2 bg-background hover:bg-accent"
       >
-        <Sun className="h-5 w-5" />
+        <Sun className="h-4 w-4 sm:h-5 sm:w-5" />
       </Button>
     );
   }
@@ -28,12 +28,12 @@ export function DarkModeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-10 h-10 rounded-none border-2 border-border bg-background hover:bg-accent transition-all duration-300 hover:scale-105"
+      className="w-8 h-8 sm:w-10 sm:h-10 rounded-none border border-border sm:border-2 bg-background hover:bg-accent transition-all duration-300 hover:scale-105"
     >
       {theme === "dark" ? (
-        <Sun className="h-5 w-5 text-foreground transition-transform duration-300 rotate-0" />
+        <Sun className="h-4 w-4 sm:h-5 sm:w-5 text-foreground transition-transform duration-300 rotate-0" />
       ) : (
-        <Moon className="h-5 w-5 text-foreground transition-transform duration-300 rotate-0" />
+        <Moon className="h-4 w-4 sm:h-5 sm:w-5 text-foreground transition-transform duration-300 rotate-0" />
       )}
       <span className="sr-only">Toggle theme</span>
     </Button>

@@ -83,17 +83,17 @@ export const AuthButton = () => {
 
   if (!user) {
     return (
-      <div className="flex gap-2">
+      <div className="flex gap-1 sm:gap-2">
         <Button 
           variant="outline" 
           onClick={() => navigate("/auth")}
-          className="text-xs sm:text-sm px-3 sm:px-4"
+          className="text-[10px] sm:text-sm h-8 sm:h-10 px-2 sm:px-4 border border-border sm:border-3"
         >
           LOGIN
         </Button>
         <Button 
           onClick={() => navigate("/auth")}
-          className="text-xs sm:text-sm px-3 sm:px-4"
+          className="text-[10px] sm:text-sm h-8 sm:h-10 px-2 sm:px-4 border border-border sm:border-3"
         >
           SIGN UP
         </Button>
@@ -118,7 +118,7 @@ export const AuthButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="w-10 h-10 sm:w-12 sm:h-12 border-3 border-border bg-foreground text-background flex items-center justify-center font-brutal text-sm shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-hover transition-all">
+        <button className="w-8 h-8 sm:w-10 sm:h-10 border border-border sm:border-3 bg-foreground text-background flex items-center justify-center font-brutal text-xs sm:text-sm shadow-sm sm:shadow-brutal hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-hover transition-all">
           {getInitials()}
         </button>
       </DropdownMenuTrigger>
