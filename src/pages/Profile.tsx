@@ -306,7 +306,7 @@ const Profile = () => {
               </div>
               
               {/* Avatar Upload */}
-              <div className="space-y-3 flex-1 w-full">
+              <div className="space-y-3 flex-1 w-full pl-6 md:pl-8">
                 <Label className="font-brutal text-xs tracking-wider">FOTO PROFIL</Label>
                 <input
                   ref={fileInputRef}
