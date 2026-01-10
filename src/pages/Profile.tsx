@@ -306,35 +306,42 @@ const Profile = () => {
               </div>
               
               {/* Avatar Upload */}
-              <div className="space-y-3 flex-1 w-full">
+              <div className="flex-1 w-full space-y-3">
+              {/* Label + Button satu baris */}
+              <div className="flex items-center gap-4">
                 <Label className="font-brutal text-xs tracking-wider">FOTO PROFIL</Label>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/jpeg,image/png,image/gif,image/webp"
-                  onChange={handleAvatarUpload}
-                  className="hidden"
-                  disabled={uploading || saving}
-                />
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => fileInputRef.current?.click()}
-                  disabled={uploading || saving}
-                  className="w-fit px-4 h-5"
-                >
-                  {uploading ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <Upload className="mr-2 h-4 w-4" />
-                  )}
-                  {uploading ? "MENGUPLOAD..." : "PILIH FOTO"}
-                </Button>
-                <p className="text-xs font-mono text-muted-foreground">
-                  Format: JPG, PNG, GIF, WEBP. Maks 2MB.
-                </p>
-              </div>
+
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/jpeg,image/png,image/gif,image/webp"
+                onChange={handleAvatarUpload}
+                className="hidden"
+                disabled={uploading || saving}
+              />
+
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploading || saving}
+                className="w-fit px-4 h-8"
+              >
+              {uploading ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              ) : (
+              <Upload className="mr-2 h-4 w-4" />
+              )}
+              {uploading ? "MENGUPLOAD..." : "PILIH FOTO"}
+              </Button>
             </div>
+
+              {/* Keterangan */}
+              <p className="text-xs font-mono text-muted-foreground">
+              Format: JPG, PNG, GIF, WEBP. Maks 2MB.
+             </p>
+            </div>
+
 
             {/* Email Field */}
             <div className="space-y-2">
