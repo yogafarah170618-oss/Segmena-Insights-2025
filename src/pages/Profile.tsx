@@ -321,7 +321,7 @@ const Profile = () => {
                   variant="outline"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={uploading || saving}
-                  className="w-fit px-4 h-20"
+                  className="w-fit px-4 h-5"
                 >
                   {uploading ? (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
