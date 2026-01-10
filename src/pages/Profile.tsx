@@ -277,7 +277,7 @@ const Profile = () => {
         <div className="p-4 sm:p-6">
           <form onSubmit={handleSave} className="space-y-6">
             {/* Avatar Section */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
               {/* Avatar Preview */}
               <div className="relative">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 border-3 border-border bg-secondary flex items-center justify-center flex-shrink-0 overflow-hidden">
@@ -321,7 +321,7 @@ const Profile = () => {
                   variant="outline"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={uploading || saving}
-                  className="w-full sm:w-auto"
+                  className="w-fit px-4 h-10"
                 >
                   {uploading ? (
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
