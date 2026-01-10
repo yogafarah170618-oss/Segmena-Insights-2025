@@ -265,7 +265,8 @@ const Profile = () => {
       </div>
 
       {/* Main Card */}
-      <div className="border-3 border-border bg-card shadow-brutal max-w-2xl">
+      {/* Main Card */}
+      <div className="border-3 border-border bg-card shadow-brutal w-full">
         {/* Card Header */}
         <div className="p-4 sm:p-6 border-b-3 border-border">
           <h2 className="text-xl font-brutal">INFORMASI PROFIL</h2>
