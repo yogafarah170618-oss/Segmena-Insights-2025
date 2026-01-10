@@ -294,13 +294,13 @@ const Profile = () => {
                   )}
                 </div>
                 {avatarUrl && !uploading && (
-                  <button
+                  <Button
                     type="button"
                     onClick={handleRemoveAvatar}
                     className="absolute -top-2 -right-2 w-6 h-6 bg-destructive text-destructive-foreground border-2 border-border flex items-center justify-center hover:bg-destructive/90 transition-colors"
                   >
                     <X className="h-3 w-3" />
-                  </button>
+                  </Button>
                 )}
               </div>
               
