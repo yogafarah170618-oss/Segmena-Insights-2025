@@ -223,7 +223,7 @@ const Landing = () => {
                   </div>
                   <div className="flex items-end gap-1 h-20 sm:h-28">
                     {[
-                      { h: 45000000, m: 'Jan' }, { h: 55, m: 'Feb' }, { h: 45, m: 'Mar' },
+                      { h: 40, m: 'Jan' }, { h: 55, m: 'Feb' }, { h: 45, m: 'Mar' },
                       { h: 70, m: 'Apr' }, { h: 60, m: 'Mei' }, { h: 85, m: 'Jun' },
                       { h: 75, m: 'Jul' }, { h: 90, m: 'Agu' }, { h: 80, m: 'Sep' },
                       { h: 95, m: 'Okt' }, { h: 88, m: 'Nov' }, { h: 100, m: 'Des' }
