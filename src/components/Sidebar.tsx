@@ -3,7 +3,7 @@ import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
 import segmenaLogo from "@/assets/segmena-logo.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button"; // TAMBAHKAN INI
+import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 
@@ -90,8 +90,11 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Button className="fixed top-3 left-3 z-[60] w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300">
-            <Menu className="w-5 h-5" />
+          <Button 
+            variant="outline"
+            className="fixed top-3 left-3 z-[60] w-11 h-11 rounded-xl bg-background border-2 border-border shadow-lg flex items-center justify-center hover:bg-accent transition-all duration-300 p-0"
+          >
+            <Menu className="w-5 h-5 text-foreground" />
           </Button>
         </SheetTrigger>
         <SheetContent 
