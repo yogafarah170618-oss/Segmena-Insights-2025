@@ -101,7 +101,7 @@ export const Sidebar = () => {
 
   // Desktop: fixed sidebar
   return (
-    <aside className="fixed left-0 top-0 h-screen w-16 border-r-3 border-border bg-card z-50">
+    <aside className="fixed left-4 top-4 z-50 h-[calc(100vh-2rem)] w-16 rounded-2xl backdrop-blur-xl shadow-lg border  bg-white/60 border-white/40  dark:bg-slate-900/60 dark:border-white/10">
       <SidebarContent />
     </aside>
   );
