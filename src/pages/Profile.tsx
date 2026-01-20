@@ -302,13 +302,13 @@ const Profile = () => {
                   )}
                 </div>
                 {avatarUrl && !uploading && (
-                  <button
+                  <Button
                     type="button"
                     onClick={handleRemoveAvatar}
                     className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center hover:bg-destructive/90 transition-colors"
                   >
                     <X className="h-3 w-3" />
-                  </button>
+                  </Button>
                 )}
               </div>
               
