@@ -5,6 +5,7 @@ import segmenaLogo from "@/assets/segmena-logo.png";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
+import { Button } from "./ui/button";
 
 const navItems = [
   { title: "Home", icon: Home, path: "/" },
@@ -89,9 +90,9 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="fixed top-3 left-3 z-[60] w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300">
+          <Button className="fixed top-3 left-3 z-[60] w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300">
             <Menu className="w-5 h-5" />
-          </button>
+          </Button>
         </SheetTrigger>
         <SheetContent 
           side="left" 
