@@ -15,12 +15,12 @@ export const Layout = ({ children }: LayoutProps) => {
       <Sidebar />
       <main 
         className={`flex-1 w-full min-w-0 ${
-          isMobile ? 'ml-0 pt-14' : 'ml-16'
+          isMobile ? 'ml-0 pt-12' : 'ml-16'
         }`}
       >
         {/* Mobile: Header bar dengan semua kontrol */}
         {isMobile && (
-          <div className="fixed top-0 left-0 right-0 z-50 h-12 bg-card flex items-center justify-end px-2 pl-12">
+          <div className="fixed top-0 left-0 right-0 z-80 h-12 bg-card flex items-center justify-end px-2 pl-12">
             <div className="flex items-center gap-1.5">
               <DarkModeToggle />
               <AuthButton />
@@ -30,7 +30,7 @@ export const Layout = ({ children }: LayoutProps) => {
         
         {/* Desktop: Posisi fixed di pojok kanan */}
         {!isMobile && (
-          <div className="fixed z-50 flex items-center gap-2 top-4 right-4">
+          <div className="fixed z-80 flex items-center gap-2 top-4 right-4">
             <DarkModeToggle />
             <AuthButton />
           </div>

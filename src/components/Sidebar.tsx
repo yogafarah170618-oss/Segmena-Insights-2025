@@ -66,8 +66,9 @@ const MobileSidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
           to={item.path}
           onClick={onNavClick}
           className={cn(
-            "h-12 border-3 border-border flex items-center gap-3 px-4 transition-all bg-card font-mono text-sm",
-            "hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal"
+            "h-12 flex items-center gap-3 px-4 rounded-xl transition-all backdrop-blur-md",
+            "bg-white/40 text-slate-700 hover:bg-white/70 hover:shadow-md",
+            "dark:bg-slate-800/40 dark:text-slate-200 dark:hover:bg-slate-800/70"
           )}
           activeClassName="bg-foreground text-background"
         >
@@ -88,7 +89,7 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="fixed top-2.5 left-2 z-[60] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
+          <button className="fixed top-2.5 left-2 z-[90] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
             <Menu className="w-4 h-4" />
           </button>
         </SheetTrigger>
