@@ -85,7 +85,7 @@ export const Sidebar = () => {
   const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
 
-  // Mobile: hamburger menu
+   // Mobile: hamburger menu
   if (isMobile) {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
@@ -93,9 +93,9 @@ export const Sidebar = () => {
           <Button 
             variant="outline"
             size="icon"
-            className="fixed top-3 left-3 z-[60] w-11 h-11 rounded-xl bg-background border-2 border-border shadow-lg hover:bg-accent transition-all duration-300"
+            className="fixed top-3 left-3 z-[60] w-10 h-10 rounded-xl bg-background border-2 border-border shadow-lg hover:bg-accent transition-all duration-300"
           >
-            <Menu className="w-[18px] h-[18px] text-foreground" />
+            <Menu className="w-4 h-4 text-foreground" strokeWidth={2.5} />
           </Button>
         </SheetTrigger>
         <SheetContent 
