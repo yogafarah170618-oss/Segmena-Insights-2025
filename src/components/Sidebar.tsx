@@ -93,7 +93,7 @@ export const Sidebar = () => {
           <Button 
             variant="outline"
             size="icon"
-            className="fixed top-3 left-3 z-[60] w-7 h-7 rounded-xl bg-background border-2 border-border shadow-lg hover:bg-accent transition-all duration-300"
+            className="fixed top-0 left-0 z-[60] w-9 h-9 rounded-xl bg-background border-2 border-border shadow-lg hover:bg-accent transition-all duration-300"
           >
             <Menu className="w-4 h-4 text-foreground" strokeWidth={2.5} />
           </Button>
