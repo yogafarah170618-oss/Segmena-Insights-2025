@@ -1,8 +1,8 @@
-import { Home, Upload, BarChart3, Target, Menu, History, X } from "lucide-react";
+import { Home, Upload, BarChart3, Target, Menu, History } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { cn } from "@/lib/utils";
 import segmenaLogo from "@/assets/segmena-logo.png";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState } from "react";
 
@@ -18,26 +18,24 @@ const SidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
   <div className="flex flex-col items-center py-6 space-y-6">
     {/* Logo */}
     <NavLink to="/" className="mb-2 group" onClick={onNavClick}>
-      <div className="w-14 h-14 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-        <img src={segmenaLogo} alt="Segmena Logo" className="w-14 h-14 object-contain drop-shadow-sm transition-all duration-300 group-hover:drop-shadow-lg" />
+      <div className="w-14 h-14 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+        <img src={segmenaLogo} alt="Segmena Logo" className="w-14 h-14 object-contain drop-shadow-lg transition-all duration-300" />
       </div>
     </NavLink>
 
     {/* Navigation */}
-    <nav className="flex flex-col items-center space-y-2 w-full px-2">
+    <nav className="flex flex-col items-center space-y-3 w-full px-3">
       {navItems.map((item) => (
         <NavLink
           key={item.path}
           to={item.path}
           onClick={onNavClick}
           className={cn(
-            cn(
-               "w-full h-12 flex items-center justify-center rounded-xl transition-all backdrop-blur-md",
-                "bg-white/40 text-slate-600 hover:bg-white/70 hover:shadow-md",
-                "dark:bg-slate-800/40 dark:text-slate-300 dark:hover:bg-slate-800/70"
-             ) 
+            "w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300",
+            "bg-white/10 backdrop-blur-sm border border-white/20",
+            "hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-primary/20 hover:scale-105"
           )}
-          activeClassName="bg-foreground text-background"
+          activeClassName="bg-gradient-to-br from-primary to-primary/70 text-white border-primary/50 shadow-lg shadow-primary/30"
         >
           <item.icon className="w-5 h-5" />
         </NavLink>
@@ -47,31 +45,35 @@ const SidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
 );
 
 const MobileSidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
-  <div className="flex flex-col h-full 
-    bg-background/70 backdrop-blur-xl border-r border-border/40">
-
-    {/* Header */}
-    <div className="flex items-center gap-3 px-4 py-4 border-b border-border/30">
-      <img src={segmenaLogo} className="w-10 h-10" />
-      <span className="font-semibold text-lg tracking-wide">SEGMENA</span>
+  <div className="flex flex-col py-6 h-full">
+    {/* Logo */}
+    <div className="px-4 mb-6">
+      <NavLink to="/" onClick={onNavClick} className="flex items-center gap-3 group">
+        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+          <img src={segmenaLogo} alt="Segmena Logo" className="w-12 h-12 object-contain drop-shadow-lg transition-all duration-300" />
+        </div>
+        <span className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          SEGMENA
+        </span>
+      </NavLink>
     </div>
 
     {/* Navigation */}
-    <nav className="flex flex-col gap-2 px-4 py-4">
+    <nav className="flex flex-col space-y-2 px-4 flex-1">
       {navItems.map((item) => (
         <NavLink
           key={item.path}
           to={item.path}
           onClick={onNavClick}
           className={cn(
-            "h-12 rounded-xl flex items-center gap-4 px-4",
-            "bg-muted/40 hover:bg-muted/70 transition-all",
-            "backdrop-blur-md"
+            "h-12 rounded-xl flex items-center gap-3 px-4 transition-all duration-300",
+            "bg-white/10 backdrop-blur-sm border border-white/20",
+            "hover:bg-white/20 hover:border-white/40 hover:shadow-lg hover:shadow-primary/20"
           )}
-          activeClassName="bg-primary text-primary-foreground shadow-md"
+          activeClassName="bg-gradient-to-r from-primary to-primary/70 text-white border-primary/50 shadow-lg shadow-primary/30"
         >
-          <item.icon className="w-5 h-5" />
-          <span className="font-medium">{item.title}</span>
+          <item.icon className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm font-medium">{item.title}</span>
         </NavLink>
       ))}
     </nav>
@@ -87,13 +89,13 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="fixed top-2.5 left-2 z-[90] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
-            <Menu className="w-4 h-4" />
+          <button className="fixed top-3 left-3 z-[60] w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg flex items-center justify-center hover:bg-white/20 hover:border-white/40 transition-all duration-300">
+            <Menu className="w-5 h-5" />
           </button>
         </SheetTrigger>
         <SheetContent 
           side="left" 
-          className="w-72 p-0 bg-background/60 backdrop-blur-xl border-r border-border/40"
+          className="w-64 p-0 bg-background/80 backdrop-blur-xl border-r border-white/20 z-[70]"
         >
           <MobileSidebarContent onNavClick={() => setOpen(false)} />
         </SheetContent>
@@ -103,7 +105,7 @@ export const Sidebar = () => {
 
   // Desktop: fixed sidebar
   return (
-    <aside className="fixed left-4 top-4 z-50 h-[calc(100vh-2rem)] w-16 rounded-2xl backdrop-blur-xl shadow-lg border  bg-white/60 border-white/40  dark:bg-slate-900/60 dark:border-white/10">
+    <aside className="fixed left-0 top-0 h-screen w-[72px] bg-background/60 backdrop-blur-xl border-r border-white/20 z-50 shadow-xl shadow-black/5">
       <SidebarContent />
     </aside>
   );
