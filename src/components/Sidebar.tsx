@@ -47,32 +47,31 @@ const SidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
 );
 
 const MobileSidebarContent = ({ onNavClick }: { onNavClick?: () => void }) => (
-  <div className="flex flex-col py-6 h-full">
-    {/* Logo */}
-    <div className="px-4 mb-6">
-      <NavLink to="/" onClick={onNavClick} className="flex items-center gap-3 group">
-        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-          <img src={segmenaLogo} alt="Segmena Logo" className="w-12 h-12 object-contain drop-shadow-sm transition-all duration-300 group-hover:drop-shadow-lg" />
-        </div>
-        <span className="font-brutal text-xl">SEGMENA</span>
-      </NavLink>
+  <div className="flex flex-col h-full 
+    bg-background/70 backdrop-blur-xl border-r border-border/40">
+
+    {/* Header */}
+    <div className="flex items-center gap-3 px-4 py-4 border-b border-border/30">
+      <img src={segmenaLogo} className="w-10 h-10" />
+      <span className="font-semibold text-lg tracking-wide">SEGMENA</span>
     </div>
 
     {/* Navigation */}
-    <nav className="flex flex-col space-y-2 px-4 flex-1">
+    <nav className="flex flex-col gap-2 px-4 py-4">
       {navItems.map((item) => (
         <NavLink
           key={item.path}
           to={item.path}
           onClick={onNavClick}
           className={cn(
-            "h-12 border-3 border-border flex items-center gap-3 px-4 transition-all bg-card font-mono text-sm",
-            "hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal"
+            "h-12 rounded-xl flex items-center gap-4 px-4",
+            "bg-muted/40 hover:bg-muted/70 transition-all",
+            "backdrop-blur-md"
           )}
-          activeClassName="bg-foreground text-background"
+          activeClassName="bg-primary text-primary-foreground shadow-md"
         >
-          <item.icon className="w-5 h-5 flex-shrink-0" />
-          <span className="uppercase tracking-wider">{item.title}</span>
+          <item.icon className="w-5 h-5" />
+          <span className="font-medium">{item.title}</span>
         </NavLink>
       ))}
     </nav>
@@ -88,13 +87,13 @@ export const Sidebar = () => {
     return (
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <button className="fixed top-2.5 left-2 z-[60] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
+          <button className="fixed top-2.5 left-2 z-[90] w-8 h-8 border border-border bg-card shadow-sm flex items-center justify-center hover:bg-muted transition-all">
             <Menu className="w-4 h-4" />
           </button>
         </SheetTrigger>
         <SheetContent 
           side="left" 
-          className="w-64 p-0 border-r-3 border-border bg-card z-[70]"
+          className="w-72 p-0 bg-background/60 backdrop-blur-xl border-r border-border/40"
         >
           <MobileSidebarContent onNavClick={() => setOpen(false)} />
         </SheetContent>
