@@ -90,11 +90,11 @@ const Dashboard = () => {
         ]);
 
         setSegmentPieData([
-          { name: 'Champions', value: 187, color: 'hsl(0, 0%, 0%)' },
-          { name: 'Loyal Customers', value: 312, color: 'hsl(45, 93%, 47%)' },
-          { name: 'At Risk', value: 249, color: 'hsl(354, 100%, 50%)' },
-          { name: 'Recent Customers', value: 374, color: 'hsl(0, 0%, 60%)' },
-          { name: 'Lost', value: 125, color: 'hsl(0, 0%, 80%)' },
+          { name: 'Champions', value: 187, color: '#4F6BED' },
+          { name: 'Loyal Customers', value: 312, color: '#22C7A9' },
+          { name: 'At Risk', value: 249, color: '#F59E0B' },
+          { name: 'Recent Customers', value: 374, color: '#A78BFA' },
+          { name: 'Lost', value: 125, color: '#9CA3AF' },
         ]);
 
         setLoading(false);
@@ -224,15 +224,15 @@ const Dashboard = () => {
     setCustomerGrowthData(growthChartData);
 
     const segmentColors: Record<string, string> = {
-      'Champions': 'hsl(0, 0%, 0%)',
-      'Loyal Customers': 'hsl(45, 93%, 47%)',
-      'At Risk': 'hsl(354, 100%, 50%)',
-      'Lost': 'hsl(0, 0%, 60%)',
-      'Potential Loyalists': 'hsl(0, 0%, 40%)',
-      'Recent Customers': 'hsl(0, 0%, 80%)',
-      'Cant Lose Them': 'hsl(45, 93%, 60%)',
-      'Big Spenders': 'hsl(0, 0%, 20%)',
-      'Need Attention': 'hsl(0, 0%, 50%)',
+      'Champions': '#4F6BED',
+      'Loyal Customers': '#22C7A9',
+      'At Risk': '#F59E0B',
+      'Lost': '#9CA3AF',
+      'Potential Loyalists': '#A78BFA',
+      'Recent Customers': '#A78BFA',
+      'Cant Lose Them': '#F59E0B',
+      'Big Spenders': '#4F6BED',
+      'Need Attention': '#22C7A9',
     };
 
     const segmentGroupsForPie = new Map<string, number>();
@@ -243,7 +243,7 @@ const Dashboard = () => {
     const pieData = Array.from(segmentGroupsForPie.entries()).map(([name, count]) => ({
       name,
       value: count,
-      color: segmentColors[name] || 'hsl(0, 0%, 50%)',
+      color: segmentColors[name] || '#9CA3AF',
     }));
 
     setSegmentPieData(pieData);
