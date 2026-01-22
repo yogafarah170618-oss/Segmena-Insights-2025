@@ -201,7 +201,7 @@ const Auth = () => {
         {/* Title */}
         <div className="text-center mb-4 sm:mb-8">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold mb-2 sm:mb-4 gradient-text leading-tight pb-2">Segmena</h1>
-          <div className="inline-block soft-badge px-3 sm:px-4 py-1.5 -rotate-1">
+          <div className="inline-block soft-badge px-3 sm:px-4 py-1.5">
             <span className="text-xs sm:text-sm font-medium">Customer Intelligence</span>
           </div>
         </div>
