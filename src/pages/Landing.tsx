@@ -381,9 +381,9 @@ const Landing = () => {
                   </div>
                   <div className="space-y-3">
                     {[
-                      { emoji: "🎯", label: "Champions", action: "Berikan reward eksklusif", color: "amber" },
-                      { emoji: "⚠️", label: "At Risk", action: "Kirim promo win-back", color: "red" },
-                      { emoji: "✨", label: "New Customers", action: "Onboarding campaign", color: "emerald" },
+                      { emoji: "🎯", label: "Champions", action: "Berikan reward eksklusif", color: "text-amber-500" },
+                      { emoji: "⚠️", label: "At Risk", action: "Kirim promo win-back", color: "text-red-500" },
+                      { emoji: "✨", label: "New Customers", action: "Onboarding campaign", color: "text-emerald-500" },
                     ].map((item, i) => (
                       <div 
                         key={i} 
