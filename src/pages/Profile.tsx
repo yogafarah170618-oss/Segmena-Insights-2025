@@ -284,7 +284,7 @@ const Profile = () => {
         <div className="p-4 sm:p-6">
           <form onSubmit={handleSave} className="space-y-6">
             {/* Avatar Section */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-6">
               {/* Avatar Preview */}
               <div className="relative">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-sm border border-white/20 flex items-center justify-center flex-shrink-0 overflow-hidden">
@@ -305,7 +305,7 @@ const Profile = () => {
                   <Button
                     type="button"
                     onClick={handleRemoveAvatar}
-                    className="absolute -top-2 -right-5 w-6 h-6 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center hover:bg-destructive/90 transition-colors"
+                    className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center hover:bg-destructive/90 transition-colors"
                   >
                     <X className="h-3 w-3" />
                   </Button>
