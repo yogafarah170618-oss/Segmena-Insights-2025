@@ -188,30 +188,6 @@ const Landing = () => {
             </Button>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-4xl mx-auto animate-fade-in-up" style={{
-          animationDelay: '0.3s'
-        }}>
-            {[{
-            label: "Customers",
-            value: stats.totalCustomers,
-            color: "primary"
-          }, {
-            label: "Segments",
-            value: stats.activeSegments,
-            color: "secondary"
-          }, {
-            label: "Avg. Transaction",
-            value: stats.avgTransaction,
-            color: "accent"
-          }].map((stat, i) => (
-            <div key={i} className="glass rounded-xl p-3 sm:p-4 text-center">
-              <div className="text-xs sm:text-sm text-muted-foreground mb-1">{stat.label}</div>
-              <div className="text-lg sm:text-2xl font-bold gradient-text">{stat.value}</div>
-            </div>
-          ))}
-          </div>
-
           {/* Dashboard Preview */}
           <div className="mt-4 sm:mt-8 glass-card overflow-hidden animate-fade-in-up" style={{
           animationDelay: '0.4s'
@@ -231,8 +207,8 @@ const Landing = () => {
             
             <div className="p-4 sm:p-8">
               {/* Step indicator */}
-              <div className="mb-6 sm:mb-8 p-4 sm:p-5 glass rounded-xl">
-                <div className="flex items-center gap-3 sm:gap-6 justify-center flex-wrap">
+              <div className="mb-6 sm:mb-8 p-3 sm:p-5 glass rounded-xl">
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 justify-center">
                   {[{
                   step: 1,
                   label: "Upload CSV"
@@ -242,15 +218,19 @@ const Landing = () => {
                 }, {
                   step: 3,
                   label: "Lihat Insight"
-                }].map((item, i) => <div key={i} className="flex items-center gap-2 sm:gap-3">
-                      {i > 0 && <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />}
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center text-sm font-semibold">
-                          {item.step}
+                }].map((item, i) => (
+                    <div key={i} className="w-full sm:w-auto">
+                      <div className="flex items-center justify-center gap-2 sm:gap-3">
+                        {i > 0 && <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />}
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0">
+                            {item.step}
+                          </div>
+                          <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{item.label}</span>
                         </div>
-                        <span className="text-xs sm:text-sm font-medium">{item.label}</span>
                       </div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
 
