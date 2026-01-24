@@ -208,7 +208,7 @@ const Landing = () => {
             <div className="p-4 sm:p-8">
               {/* Step indicator */}
               <div className="mb-6 sm:mb-8 p-3 sm:p-5 glass rounded-xl">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 justify-center">
+                <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 justify-center">
                   {[{
                   step: 1,
                   label: "Upload CSV"
@@ -219,8 +219,8 @@ const Landing = () => {
                   step: 3,
                   label: "Lihat Insight"
                 }].map((item, i) => (
-                    <div key={i} className="w-full sm:w-auto">
-                      <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
+                    <div key={i} className="w-full sm:w-auto flex justify-center">
+                      <div className="flex items-center gap-2 sm:gap-3">
                         {i > 0 && <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />}
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center text-sm font-semibold flex-shrink-0">
@@ -233,7 +233,7 @@ const Landing = () => {
                   ))}
                 </div>
               </div>
-
+              
               {/* Segment Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
                 {[{
